@@ -16,7 +16,7 @@ const AddForm = ({ addToTaskList }) => {
 
     setNewInfo({
       ...newInfo,
-      [name]: value,
+      [name]: value === "hr" ? +value : value,
     });
   };
 

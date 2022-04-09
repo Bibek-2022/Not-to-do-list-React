@@ -13,10 +13,18 @@ function App() {
   const [taskLists, setTaskLists] = useState([]);
   const [badLists, setBadLists] = useState([]);
 
+  const deleteTask = () => {
+    return window.confirm(
+      "Are you sure you dont want to do this cause I know you havent started it"
+    );
+  };
+
   // remove item from the item list
   const removeFromTaskList = (i) => {
-    const filteredArg = taskLists.filter((item, index) => index !== i);
-    setTaskLists(filteredArg);
+    if (deleteTask()) {
+      const filteredArg = taskLists.filter((item, index) => index !== i);
+      setTaskLists(filteredArg);
+    }
   };
 
   const shiftToTheBadList = (i) => {
@@ -27,8 +35,10 @@ function App() {
   };
 
   const removeFromBadList = (i) => {
-    const filteredArg = taskLists.filter((item, index) => index !== i);
-    setBadLists(filteredArg);
+    if (deleteTask()) {
+      const filteredArg = taskLists.filter((item, index) => index !== i);
+      setBadLists(filteredArg);
+    }
   };
   const shiftToTaskList = (i) => {
     const item = badLists[i];
