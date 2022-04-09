@@ -11,29 +11,21 @@ const BadList = ({ badLists, removeFromBadList, shiftToTaskList }) => {
         <tbody>
           {badLists.map((item, i) => {
             return (
-              <>
-                <tr key={i}>
-                  <td>
-                    <Form.Check type="checkbox" label="Check me out" />
-                  </td>
-                  <td>{item.task}</td>
-                  <td>{item.hr}Hour</td>
-                  <td className="text-end">
-                    <Button variant="warning">
-                      <i
-                        className="fa-solid fa-arrow-left-long"
-                        onClick={shiftToTaskList(i)}
-                      ></i>
-                    </Button>{" "}
-                    <Button variant="danger">
-                      <i
-                        className="fa-solid fa-trash-can"
-                        onClick={removeFromBadList(i)}
-                      ></i>
-                    </Button>
-                  </td>
-                </tr>
-              </>
+              <tr key={i}>
+                <td>
+                  <Form.Check type="checkbox" label="Check me out" />
+                </td>
+                <td>{item.task}</td>
+                <td>{item.hr}Hour</td>
+                <td className="text-end">
+                  <Button variant="warning" onClick={() => shiftToTaskList(i)}>
+                    <i className="fa-solid fa-arrow-left-long"></i>
+                  </Button>{" "}
+                  <Button variant="danger" onClick={() => removeFromBadList(i)}>
+                    <i className="fa-solid fa-trash-can"></i>
+                  </Button>
+                </td>
+              </tr>
             );
           })}
         </tbody>

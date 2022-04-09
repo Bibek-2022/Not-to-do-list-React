@@ -19,22 +19,15 @@ function App() {
 
   // remove item from the item list
   const removeFromTaskList = (i) => {
-    npm;
     const filteredArg = taskLists.filter((item, index) => index !== i);
     setTaskLists(filteredArg);
   };
 
   const shiftToTheBadList = (i) => {
     const item = taskLists[i];
-    console.log(item);
-
     setBadLists([...badLists, item]);
 
     removeFromTaskList(i);
-
-    // get the item that to be shifted
-    // add the item in the bad ListGrou
-    // premove the item from the task list
   };
 
   const removeFromBadList = (i) => {
